@@ -1,0 +1,69 @@
+<div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+    <app-nav-bar></app-nav-bar>
+    <div class="app-main">
+        <app-side-bar></app-side-bar>
+        <div class="app-main__outer">
+            <div class="app-main__inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="content">
+                            <div id="main-panel">
+                                <br>
+                                <label for="formselect">Choose form that you want to see</label>
+                                <select class="form-control" name="" id="formselect" (change)="selectForm($event)">
+                                    <option value="">Choose...</option>
+                                    <option *ngFor="let form of forms" [value]="form.formId">{{form.formName}}</option>
+                                </select>
+                                <br><br>
+                                <div class="container" id="form-view" *ngIf="form !== null">
+                                    <div class="row">
+                                        <div id="form-view-in" class="col col-md-12">
+                                            <h4>{{form.formName}}</h4>
+                                            <hr>
+                                            <form>
+                                                <div class="form-group" *ngFor="let element of form.formDetailsList">
+                                                    <label>{{element.displayName}}</label>
+                                                    <input *ngIf="element.type === 'text'" type="text"
+                                                        class="form-control">
+                                                    <input *ngIf="element.type === 'password'" type="password"
+                                                        class="form-control">
+                                                    <textarea *ngIf="element.type === 'textarea'" type="password"
+                                                        class="form-control"></textarea>
+                                                    <input *ngIf="element.type === 'radio'" type="radio">
+                                                    <input *ngIf="element.type === 'checkbox'" type="checkbox">
+                                                    <select
+                                                        *ngIf="element.type.includes('option') || element.type === ''">
+                                                        <option *ngFor="let opt of element.type.split(',').slice(1)">
+                                                            {{opt}}</option>
+                                                    </select>
+
+                                                </div>
+                                            </form>
+
+                                            <br><br>
+
+                                            <!-- <p class="link alert alert-success" (click)="getLink(form.uniqueId)">Conseguir Enlace</p> -->
+                                            <p><i>Enlace del Formulario:</i></p>
+                                            <input class="form-control" type="text"
+                                                value="http://localhost:4200/final-form/{{form.uniqueId}}">
+                                            <button class="btn btn-info">COPY</button>
+                                            <br>
+                                            <i *ngIf="currentUser !== null && !currentUser.roles.includes('SuperAdmin')"
+                                                class="fas fa-trash-alt" style="float: right;cursor: pointer;"
+                                                (click)="deleteForm(form.formId)"></i>
+
+                                            <i *ngIf="currentUser !== null && currentUser.roles.includes('SuperAdmin')"
+                                                class="fas fa-trash-alt" style="float: right;cursor: pointer;"
+                                                (click)="deleteMasterForm(form.formId)"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

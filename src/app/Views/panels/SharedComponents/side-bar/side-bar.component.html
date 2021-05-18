@@ -1,0 +1,118 @@
+<div class="app-sidebar sidebar-shadow">
+    <div class="app-header__logo">
+        <div class="logo-src"></div>
+        <div class="header__pane ml-auto">
+            <div>
+                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+                    data-class="closed-sidebar">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="app-header__mobile-menu">
+        <div>
+            <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="app-header__menu">
+        <span>
+            <button type="button"
+                class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                <span class="btn-icon-wrapper">
+                    <i class="fa fa-ellipsis-v fa-w-6"></i>
+                </span>
+            </button>
+        </span>
+    </div>
+    <div class="scrollbar-sidebar">
+        <div class="app-sidebar__inner">
+            <ul class="vertical-nav-menu">
+
+                <li class="app-sidebar__heading">Formularios</li>
+                <li>
+                    <a routerLink='/adminpanel'>
+                        <i class="metismenu-icon fas fa-user"></i>
+                        Panel
+                    </a>
+                </li>
+                <li>
+                    <a>
+                        <i class="metismenu-icon far fa-newspaper"></i>
+                        Formularios
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                    </a>
+                    <ul>
+                        <li>
+                            <a routerLink="/create-form">
+                                <i class="metismenu-icon"></i>
+                                Agregar Formularios
+                            </a>
+                        </li>
+                        <li>
+                            <a routerLink="/view-form">
+                                <i class="metismenu-icon"></i>
+                                Mis Formularios
+                            </a>
+                        </li> 
+                        <li>
+                            <a routerLink="/organization" *ngIf="currentUser !== null && currentUser.roles.includes('SuperAdmin')">
+                                <i class="metismenu-icon"></i>
+                                Organizaciones
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a>
+                        <i class="metismenu-icon fas fa-copy"></i>
+                        Datos Rellenados
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                    </a>
+                    <ul>
+                        <li *ngIf="currentUser !== null && currentUser.roles.includes('SuperAdmin')" >
+                            <a routerLink="/users-forms">
+                                <i class="metismenu-icon"></i>
+                                Todos los Datos
+                            </a>
+                        </li>
+                        <li>
+                            <a *ngIf="currentUser !== null && currentUser.roles.includes('SuperAdmin')" routerLink=''>
+                                <i class="metismenu-icon"></i>
+                                Consultorias
+                            </a>
+                        </li>
+                        <li *ngIf="currentUser !== null && !currentUser.roles.includes('SuperAdmin')" >
+                            <a routerLink="/users-forms">
+                                <i class="metismenu-icon"></i>
+                                Datos de los usuarios
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a>
+                        <i class="metismenu-icon fas fa-sign-out-alt"></i>
+                        Log out
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                    </a>
+                    <ul>
+                        <li>
+                            <a class="link" (click)="logout()">
+                                <i class="metismenu-icon"></i>
+                                Log Out
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>

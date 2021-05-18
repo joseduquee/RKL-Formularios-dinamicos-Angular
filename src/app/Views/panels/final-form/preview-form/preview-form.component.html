@@ -1,0 +1,26 @@
+<div class="container auth-form">
+    <div class="row">
+        <div class="col col-md-12">
+            <h3 id="formName" *ngIf="form !== null && form !== undefined">{{form.formName}}</h3>
+            <hr>
+            <form id="form" *ngIf="form !== null && form !== undefined" >
+                <div class="form-group" *ngFor="let detail of form.formDetailsList">
+                    <label for="FN" *ngIf="detail.type === 'checkbox' || detail.type === 'radio' || detail.type.includes('option') || detail.type === ''" >{{detail.displayName}}</label>
+                    <h6 *ngIf="detail.type === 'text' || detail.type === 'password' || detail.type === 'textarea'">{{detail.displayName}}</h6>
+                    <input class="text" name="{{detail.displayName.replace(' ','-')}}" *ngIf="detail.type === 'text'" type="text">
+                    <input class="radio" name="{{detail.displayName.replace(' ','-')}}" *ngIf="detail.type === 'radio'" type="radio">
+                    <input class="checkbox" name="{{detail.displayName.replace(' ','-')}}" *ngIf="detail.type === 'checkbox'" type="checkbox">
+                    <input class="password" name="{{detail.displayName.replace(' ','-')}}" *ngIf="detail.type === 'password'" type="password">
+                    <textarea class="textarea" name="{{detail.displayName.replace(' ','-')}}" *ngIf="detail.type === 'textarea'" cols="60" rows="3"></textarea>
+                    <select class="textarea" name="{{detail.displayName.replace(' ','-')}}" *ngIf="detail.type.includes('option') || detail.type === ''">
+                        <option value="{{opt}}" *ngFor="let opt of detail.type.split(',').slice(1)">{{opt}}</option>
+                    </select>
+                </div>
+                <input type="button" class="btn btn-primary submit" value="enviar" (click)="sendUserInfo()"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+<swal #success title="Success!" icon="success" text="" [showCancelButton]="true" [focusCancel]="true">
+</swal>

@@ -1,0 +1,127 @@
+<div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+  <app-nav-bar></app-nav-bar>
+  <div class="app-main">
+    <app-side-bar></app-side-bar>
+    <div class="app-main__outer">
+      <div class="app-main__inner">
+        <div class="row">
+          <div class="col-md-12">
+            <h6 class="link" (click)="agregarOrg()">Agregar Organizacion</h6>
+            <div id="organization-form" class="myhide">
+              <form [formGroup]="organizationForm" (submit)="addOrganizacion()">
+                <div class="form-group">
+                  <label for="title">Titulo</label>
+                  <input type="text" formControlName="title" class="form-control" id="title">
+                </div>
+                <div class="form-group">
+                  <label for="name">Nombre</label>
+                  <input type="text" formControlName="name" required class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                  <label for="phoneNumber">Numero de telefono</label>
+                  <input type="text" formControlName="phoneNumber" required class="form-control" id="phoneNumber">
+                </div>
+                <div class="form-group">
+                  <label for="address">Direccion</label>
+                  <input type="text" formControlName="address" required class="form-control" id="address">
+                </div>
+                <div class="form-group">
+                  <label for="private">Privado</label>
+                  <input type="checkbox" formControlName="isPrivate" required class="checkbox" id="private">
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-info">Crear</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <br><br>
+        <hr>
+        <div class="row">
+          <div class="col-md-12">
+            <div id="content">
+              <div id="main-panel" *ngIf="organizations.length > 0">
+                <br>
+                <label for="formselect">Elige el formulario que quieres ver</label>
+                <select class="form-control" name="" id="formselect" (click)="loadFormsOfOrganization()">
+                  <option value="{{organization.uniqueId}}" *ngFor="let organization of organizations">
+                    {{organization.name}}</option>
+                </select>
+                <br>
+                <a *ngIf="organizations.length > 0" class="btn btn-success" id="add-admin-btn"
+                  (click)="addAdmin()">añadir administrador</a>
+
+                <div id="new-admin-form" class="myhide">
+                  <form [formGroup]="newAdminForm" (submit)="addNewAdmin()">
+                    <div class="form-group">
+                      <label for="firstname">Nombre</label>
+                      <input type="text" formControlName="firstName" class="form-control" id="firstname">
+                    </div>
+                    <div class="form-group">
+                      <label for="last-name">Apellido</label>
+                      <input type="text" formControlName="lastName" required class="form-control" id="last-name">
+                    </div>
+                    <div class="form-group">
+                      <label for="email">email</label>
+                      <input type="text" formControlName="email" required class="form-control" id="email">
+                    </div>
+                    <div class="form-group">
+                      <label for="password">Contraseña</label>
+                      <input type="password" formControlName="password" required class="form-control" id="password">
+                    </div>
+                    <div class="form-group">
+                      <label for="confirmPass">Repetir Contraseña</label>
+                      <input type="password" formControlName="confirmPassword" required class="form-control"
+                        id="confirmPass">
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-info">Crear</button>
+                    </div>
+                  </form>
+                </div>
+                <p *ngIf="selectedOrganizationForms.length === 0" id="no-form" class="alert alert-warning">En esta
+                  organizacion, no hay ningun formulario</p>
+                <div *ngIf="selectedOrganizationForms.length > 0">
+                  <table class="table table-bordered" *ngFor="let form of selectedOrganizationForms">
+                    <thead>
+                      <tr>
+                        <th>
+                          Nombre del formulario
+                        </th>
+                        <th>
+                          Ver el formulario
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{{form.formName}}</td>
+                        <td>
+                        <a routerLink="/preview-form/{{form.uniqueId}}" >Ver</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+
+                <br>
+              </div>
+              <div id="main-panel" *ngIf="organizations.length === 0">
+                <h5 class="alert alert-danger">No hay ninguna organizacion</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<swal #error title="Oops" icon="error" text='' [showCancelButton]="true" [focusCancel]="true">
+</swal>
+
+<swal #success title="Success" icon="success" text='Has creado una organizacion correctamente' [showCancelButton]="true"
+  [focusCancel]="true">
+</swal>

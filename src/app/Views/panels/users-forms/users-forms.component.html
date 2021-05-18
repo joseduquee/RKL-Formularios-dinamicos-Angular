@@ -1,0 +1,39 @@
+
+<div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
+  <app-nav-bar></app-nav-bar>
+    <div class="app-main">
+        <app-side-bar></app-side-bar>
+        <div class="app-main__outer">
+            <div class="app-main__inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="content">
+                                <div id="main-panel">
+                                 <div class="contents" *ngFor="let form of usersForms">
+                                     <h5>Nombre del formulario: {{form.formName}}</h5>
+                                    <table  class="table table-bordered table-striped ">
+                                        <tr>
+                                            <th>Nombre del Campo</th>
+                                            <th>Contenido</th>
+                                        </tr>
+                                        <tr *ngFor="let data of form.values">
+                                            <td>
+                                                {{data.tagName}}
+                                            </td>
+                                            <td>
+                                                {{data.value}}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <hr>
+                                    <br>
+                                 </div>
+                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

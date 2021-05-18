@@ -1,0 +1,191 @@
+   <!--header section start -->
+   <div class="header_section">
+    <div class="container-fluid">
+       <div class="row">
+          <div class="col-md-3">
+             <div class="logo"><img width="50%" src="/assets/images/rkl-logo.png"></div>
+          </div>
+          <div class="col-md-9">
+             <div class="menu_text">
+                <ul>
+                    <li>
+                   <div id="myNav" class="overlay">
+                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                      <div class="overlay-content">
+                         <a *ngIf="currentUser === null || currentUser === undefined" routerLink="/login">LOGIN</a>
+                         <a *ngIf="currentUser === null || currentUser === undefined" routerLink="/register/user">REGISTERAR</a>
+                         <a *ngIf="currentUser !== null && currentUser !== undefined" routerLink="/adminpanel">MI PERFIL</a>
+                         <a *ngIf="currentUser !== null && currentUser !== undefined" class="home-page-menu-option " (click)="logout()">LOG OUT</a>
+                         <a href="services.html">SERVICIOS</a>
+                         <a href="client.html">CLIENTES</a>
+                         <a href="contact.html">CONTACTO</a>
+                      </div>
+                   </div>
+                   <span class="navbar-toggler-icon"></span>
+                   <span onclick="openNav()"><img src="/assets/images/toogle-icon.png" class="toggle_menu"></span>
+                </li>
+            </ul>
+             </div>
+             
+          </div>
+       </div>
+    </div>
+    <!-- banner section start -->
+    <div class="banner_section">
+       <div class="container-fluid padding_0">
+          <div id="my_slider" class="carousel slide" data-ride="carousel">
+             <div class="carousel-inner">
+                <div class="carousel-item active">
+                   <div class="row">
+                      <div class="col-md-6">
+                         <div class="padding_left_0">
+                            <h1 class="retailer_text">We Are Provide Professional Consulting</h1>
+                            <p class="search_text">It is a long established fact that a reader will be distracted by the readable content of a page </p>
+                            <div class="btn_main">
+                               <div class="more_bt"><a href="#">Read More </a></div>
+                               <div class="contact_bt"><a href="#">Get A Quote</a></div>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="col-md-6">
+                         <div><img src="/assets/images/img-1.png" class="image_1"></div>
+                      </div>
+                   </div>
+                </div>
+                <div class="carousel-item">
+                   <div class="row">
+                      <div class="col-md-6">
+                         <div class="padding_left_0">
+                            <h1 class="retailer_text">We Are Provide Professional Consulting</h1>
+                            <p class="search_text">It is a long established fact that a reader will be distracted by the readable content of a page </p>
+                            <div class="btn_main">
+                               <div class="more_bt"><a href="#">Read More </a></div>
+                               <div class="contact_bt"><a href="#">Get A Quote</a></div>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="col-md-6">
+                         <div><img src="/assets/images/img-1.png" class="image_1"></div>
+                      </div>
+                   </div>
+                </div>
+                <div class="carousel-item">
+                   <div class="row">
+                      <div class="col-md-6">
+                         <div class="padding_left_0">
+                            <h1 class="retailer_text">We Are Provide Professional Consulting</h1>
+                            <p class="search_text">It is a long established fact that a reader will be distracted by the readable content of a page </p>
+                            <div class="btn_main">
+                               <div class="more_bt"><a href="#">Read More </a></div>
+                               <div class="contact_bt"><a href="#">Get A Quote</a></div>
+                            </div>
+                         </div>
+                      </div>
+                      <div class="col-md-6">
+                         <div><img src="/assets/images/img-1.png" class="image_1"></div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+             <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
+             <i class="fa fa-left"><img src="/assets/images/left-arrow.png"></i>
+             </a>
+             <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+             <i class="fa fa-right"><img src="/assets/images/right-arrow.png"></i>
+             </a>
+          </div>
+       </div>
+    </div>
+    <!-- banner section end -->
+ </div>
+ <!-- about section start -->
+ <div class="about_section layout_padding">
+    <div class="container">
+       <div class="row">
+          <div class="col-sm-6">
+             <div><img src="/assets/images/img-8.png" class="image_8"></div>
+          </div>
+          <div class="col-sm-6">
+             <h1 class="about_taital">About Us</h1>
+             <p class="lorem_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
+             <div class="more_bt"><a href="#">Read More </a></div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!--about section end-->
+
+ <!-- contact section start -->
+ <div class="Contact_section layout_padding">
+    <div class="container">
+       <h1 class="categories_text">Rqueste a call back</h1>
+       <p class="dummy_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered a</p>
+       <div class="email_box">
+          <div class="input_main">
+             <div class="container">
+                <form action="/action_page.php">
+                   <div class="form-group">
+                      <input type="text" class="email-bt" placeholder="Name" name="Name">
+                   </div>
+                   <div class="form-group">
+                      <input type="text" class="email-bt" placeholder="Phone Numbar" name="Phone Numbar">
+                   </div>
+                   <div class="form-group">
+                      <input type="text" class="email-bt" placeholder="Email Address" name="Email Address">
+                   </div>
+                   <div class="form-group">
+                      <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
+                   </div>
+                </form>
+             </div>
+             <div class="send_bt"><a href="#">SEND</a></div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- contact section end -->
+ <!-- footer section start -->
+ <div class="footer_section layout_padding">
+    <div class="container">
+       <div class="row">
+          <div class="col-lg-3 col-sm-6">
+             <h4 class="address_text">ADDRESS</h4>
+             <p class="simply_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been  </p>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+             <h4 class="address_text">QUICK LINKS</h4>
+             <div class="footer_menu_main">
+                <div class="footer_menu">
+                   <ul>
+                      <li><a href="index.html.html">Home</a></li>
+                      <li><a href="about.html">About</a></li>
+                      <li><a href="services.html">Services</a></li>
+                      <li><a href="contact.html">Contact Us</a></li>
+                   </ul>
+                </div>
+             </div>
+          </div>
+          <div class="col-lg-6 col-sm-12">
+             <div class="newsletter_section">
+                <div class="newsletter_right">
+                   <div class="social_icon">
+                      <ul>
+                         <li><a href="#"><img src="/assets/images/fb-icon.png"></a></li>
+                         <li><a href="#"><img src="/assets/images/twitter-icon.png"></a></li>
+                         <li><a href="#"><img src="/assets/images/instagram-icon.png"></a></li>
+                      </ul>
+                   </div>
+                </div>
+             </div>
+             <input type="text" class="mail_bt" placeholder="Enter Your Email" name="Enter Your Email">
+             <input type="text" class="mail_bt" placeholder="Phone" name="Phone">
+             <div class="subscribe_bt"><a href="#">Subscribe</a></div>
+          </div>
+       </div>
+    </div>
+ </div>
+ <!-- footer section end -->
+ <!-- copyright section start -->
+ <div class="copyright_section">
+    <div class="copyright_text">Copyright 2020 All Right Reserved By <a href="https://html.design">Free html  Templates</a></div>
+ </div>
